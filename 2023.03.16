@@ -1,0 +1,97 @@
+求第n个斐波那契
+int Fib(int x)    //运算量大，记性了大量的不必要运算
+{
+	if (x <= 2)
+		return 1;
+	else
+		return Fib(x - 1) + Fib(x - 2);
+}
+int Fib(int x)
+{
+	int a = 1; 
+	int b = 1;
+	int c = 1;
+	while (x > 2)
+	{
+		a = b; 
+		b = c;
+		c = a + b;
+		x--;
+	}
+	return c;
+}
+int main()
+{
+	int n = 0;
+	scanf("%d", &n);
+	printf("%d\n", Fib(n));
+	//printf("%d", count);
+
+	return 0;
+}
+
+//计算n的阶乘
+int factorial(int x)
+{
+	if (x > 1)
+	{
+		return (x * factorial(x - 1));
+	}
+	else
+		return 1;
+}
+int main()
+{
+	int n = 0;
+	scanf("%d", &n);
+	printf("%d", factorial(n));
+	return 0;
+}
+
+//不创建变量，求字符串的长度
+int my_strlen(char* str)
+{
+	//int count = 0;
+	//while (*str != '\0')
+	//{
+	//	count++;
+	//	str++;
+	//}
+	if (*str != 0)
+		return (1 + my_strlen(str + 1));
+	else
+		return 0;
+}
+int main()
+{
+	char arr[] = { 0 };
+	//int len = strlen(arr);
+	int len = my_strlen(arr);
+	printf("len = %d", len);
+	return 0;
+}
+
+//利用递归按顺序打印无符号数字1234的每一位，1 2 3 4
+void print(int n)
+{
+	if (n > 9)
+	{
+		print(n / 10);
+	}
+	printf("%d ", n % 10);
+}
+int main()
+{
+	unsigned int num = 0;
+	scanf("%d", &num);
+	print(num);
+	return 0;
+}
+
+////简易的递归示例
+//int main()
+//{
+//	printf("hehe\n");
+//	main();
+//	return 0;
+//}
